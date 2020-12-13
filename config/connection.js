@@ -1,7 +1,7 @@
 // Setting up MySQL connection.
 var mysql = require("mysql");
 
-// mysql://a7bis13k94bg17x1:kum642yi87jrh848@de1tmi3t63foh7fa.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/wnmxj3irr5q0stk9
+// git push heroku ma
 if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
@@ -13,7 +13,17 @@ if (process.env.JAWSDB_URL) {
     });
 }
 
-connection.connect();
+connection.connect(function (err) {
+    if (err) throw err;
+    console.log("Connected");
+    connection.end();
+});
+app.get("/", function (req, res) {
+    res.send("Connected!");
+});
+app.listen(PORT, function () {
+    console.log('Server running on http://localhost:' + PORT);
+})
 
 // Exporting connection for my ORM to use.
 module.exports = connection;
