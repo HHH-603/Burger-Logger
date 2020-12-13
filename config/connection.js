@@ -13,17 +13,7 @@ if (process.env.JAWSDB_URL) {
     });
 }
 
-connection.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected");
-    connection.end();
-});
-app.get("/", function (req, res) {
-    res.send("Connected!");
-});
-app.listen(PORT, function () {
-    console.log('Server running on http://localhost:' + PORT);
-})
+connection.connect();
 
 // Exporting connection for my ORM to use.
 module.exports = connection;
