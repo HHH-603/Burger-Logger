@@ -1,4 +1,3 @@
-const { updateOneeOne } = require("../config/orm.js");
 var orm = require("../config/orm.js");
 
 var burger = {
@@ -13,7 +12,7 @@ var burger = {
         });
     },
     updateOne: function (objColVals, condition, cb) {
-        orm.updateOnee("burgers", objColVals, condition, function (res) {
+        orm.updateOne("burgers", objColVals, condition, function (res) {
             cb(res);
         });
     },
